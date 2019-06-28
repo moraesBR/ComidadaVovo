@@ -27,10 +27,12 @@ public class Ingrediente {
     public String toString(){
         if(unidade != Unidade.UNKNOWN)
             if(quantidade > 1)
-                return quantidade + " " + unidade.getUnidade() + "s de " + ingrediente + "/n";
+                return quantidade + " " + unidade.getUnidades() + " de " + ingrediente + "/n";
             else
                 return quantidade + " " + unidade.getUnidade() + " de " + ingrediente + "/n";
         else
             return ingrediente + "/n";
     }
+
+
 }

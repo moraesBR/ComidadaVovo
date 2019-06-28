@@ -18,4 +18,15 @@ public enum Unidade {
         return this.unidade;
     }
 
+    public String getUnidades(){
+        String saida = null;
+        switch (unidade){
+            case "grama": saida = unidade+"s"; break;
+            case "litro": saida = unidade+"s"; break;
+            case "unidade": saida = unidade+"s"; break;
+            case "colher": saida = unidade+"es"; break;
+            case "xícara": saida = unidade+"s"; break;
+        }
+        return saida;
+    }
 }
