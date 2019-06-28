@@ -3,9 +3,9 @@ package Senac.comidadavovo.models;
 public class Ingrediente {
     private final String ingrediente;
     private final Unidade unidade;
-    private final int quantidade;
+    private final double quantidade;
 
-    public Ingrediente(String ingrediente, Unidade unidade, int quantidade) {
+    public Ingrediente(String ingrediente, Unidade unidade, double quantidade) {
         this.ingrediente = ingrediente;
         this.unidade = unidade;
         this.quantidade = quantidade;
@@ -19,12 +19,18 @@ public class Ingrediente {
         return unidade;
     }
 
-    public int getQuantidade() {
+    public double getQuantidade() {
         return quantidade;
     }
 
     @Override
     public String toString(){
-        return quantidade + " " + unidade.getUnidade() + " de " + ingrediente;
+        if(unidade != Unidade.UNKNOWN)
+            if(quantidade > 1)
+                return quantidade + " " + unidade.getUnidade() + "s de " + ingrediente + "/n";
+            else
+                return quantidade + " " + unidade.getUnidade() + " de " + ingrediente + "/n";
+        else
+            return ingrediente + "/n";
     }
 }

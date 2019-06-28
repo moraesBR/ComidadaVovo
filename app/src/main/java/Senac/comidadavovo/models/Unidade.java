@@ -1,11 +1,12 @@
 package Senac.comidadavovo.models;
 
 public enum Unidade {
-    K("quilograma"),
+    G("grama"),
     L("litro"),
     U("unidade"),
-    S("colheres"),
-    C("copos");
+    S("colher"),
+    C("xícara"),
+    UNKNOWN("");
 
     private final String unidade;
 

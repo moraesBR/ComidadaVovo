@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Comida {
+    private String comida;
     private List<Ingrediente> ingredientes;
 
-    public Comida() {
+    public Comida(String comida) {
+        this.comida = comida;
         ingredientes = new ArrayList<Ingrediente>();
     }
 
@@ -15,8 +17,9 @@ public class Comida {
     }
 
     public String toString(){
-        StringBuilder saida = new StringBuilder("Ingredi");
+        StringBuilder saida = new StringBuilder(comida+"/nIngredientes:/n");
+        for (Ingrediente ingrediente : this.ingredientes)
+            saida.append(ingrediente.toString());
         return saida.toString();
     }
 }
-
