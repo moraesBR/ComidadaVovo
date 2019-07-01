@@ -1,11 +1,9 @@
 package Senac.comidadavovo.adapters;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -38,9 +36,6 @@ public class AdapterComida extends RecyclerView.Adapter {
         ComidaViewHolder viewHolder = (ComidaViewHolder) holder;
 
         Comida comida = comidas.get(position);
-
-        Log.e(comida.getNome(),String.valueOf(comida.getFoto().getIcon()));
-
 
         viewHolder.nomeComida.setText(comida.getNome());
         viewHolder.fotoComida.setImageDrawable(context.getResources().getDrawable(comida.getFoto().getNormal(),null));

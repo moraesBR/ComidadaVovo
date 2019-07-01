@@ -10,4 +10,6 @@
         <item>Massas</item>
         <item>Caldos</item>
     </string-array>
+    <string name="title_activity_receita">Receita</string>
+    <string name="tv_ingredientes">Ingredientes</string>
 </resources>
