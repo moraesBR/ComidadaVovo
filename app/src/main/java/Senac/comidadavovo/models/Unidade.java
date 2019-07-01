@@ -10,7 +10,7 @@ public enum Unidade {
 
     private final String unidade;
 
-    private Unidade(String unidade){
+    Unidade(String unidade){
         this.unidade = unidade;
     }
 

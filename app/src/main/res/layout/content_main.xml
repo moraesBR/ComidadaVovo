@@ -1,35 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="18dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".MainActivity"
+    tools:context="MainActivity"
     tools:showIn="@layout/activity_main">
 
     <TextView
         android:id="@+id/tvMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/tv_menu"
-        android:textAllCaps="true"
-        android:textStyle="bold"
         android:layout_marginBottom="8dp"
-        />
+        android:text="@string/tv_menu"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:textAllCaps="true"
+        android:textStyle="bold" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvComidas"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="vertical"
-        android:contextClickable="true"
-        android:longClickable="true"
-        >
+        android:layout_height="wrap_content">
 
-    </androidx.recyclerview.widget.RecyclerView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvComidas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contextClickable="true"
+                android:longClickable="true"
+                android:scrollbars="vertical"/>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

@@ -20,13 +20,13 @@ public class Imagem implements Parcelable {
         return icon;
     }
 
-    public void setNormal(int normal) {
+    /*public void setNormal(int normal) {
         this.normal = normal;
-    }
+    }*/
 
-    public void setIcon(int icon) {
+/*    public void setIcon(int icon) {
         this.icon = icon;
-    }
+    }*/
 
     @Override
     public int describeContents() {
@@ -39,7 +39,7 @@ public class Imagem implements Parcelable {
         dest.writeInt(this.icon);
     }
 
-    protected Imagem(Parcel in) {
+    private Imagem(Parcel in) {
         this.normal = in.readInt();
         this.icon = in.readInt();
     }

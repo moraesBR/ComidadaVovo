@@ -8,7 +8,7 @@ public class Ingrediente implements Parcelable {
     private final Unidade unidade;
     private final double quantidade;
 
-    public Ingrediente(String nome, Unidade unidade, double quantidade) {
+    Ingrediente(String nome, Unidade unidade, double quantidade) {
         this.nome = nome;
         this.unidade = unidade;
         this.quantidade = quantidade;
@@ -50,7 +50,7 @@ public class Ingrediente implements Parcelable {
         dest.writeDouble(this.quantidade);
     }
 
-    protected Ingrediente(Parcel in) {
+    private Ingrediente(Parcel in) {
         this.nome = in.readString();
         int tmpUnidade = in.readInt();
         this.unidade = tmpUnidade == -1 ? null : Unidade.values()[tmpUnidade];

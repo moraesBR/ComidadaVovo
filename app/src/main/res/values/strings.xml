@@ -3,4 +3,11 @@
     <string name="action_settings">Settings</string>
     <string name="titulo">Comida da Vovó</string>
     <string name="tv_menu">Cardápio</string>
+    <string-array name="sp_categorias">
+        <item>Todas</item>
+        <item>Carnes vermelhas</item>
+        <item>Carnes brancas</item>
+        <item>Massas</item>
+        <item>Caldos</item>
+    </string-array>
 </resources>
