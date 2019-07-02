@@ -30,11 +30,11 @@ public class Ingrediente implements Parcelable {
     public String toString(){
         if(unidade != Unidade.UNKNOWN)
             if(quantidade > 1)
-                return quantidade + " " + unidade.getUnidades() + " de " + nome + "/n";
+                return quantidade + " " + unidade.getUnidades() + " de " + nome + " ";
             else
-                return quantidade + " " + unidade.getUnidade() + " de " + nome + "/n";
+                return quantidade + " " + unidade.getUnidade() + " de " + nome + " ";
         else
-            return nome + "/n";
+            return nome + " ";
     }
 
 
