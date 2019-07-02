@@ -31,15 +31,22 @@ import Senac.comidadavovo.models.MenuComidas;
 
 public class MainActivity extends AppCompatActivity{
 
-    private RecyclerView rvComidas;
+    /* Dados */
     private MenuComidas comidas;
     private List<Comida> listComida = new ArrayList<>();
-    private AdapterComida adapterComida;
-    private RecyclerView.LayoutManager layout;
-    private Spinner spFiltro;
 
-    /*private static Bundle mBundleRecyclerViewState;
-    public static final String RVCOMIDAS_TEXT_KEY = "recycler_state";*/
+    /* RecyclerView */
+    private AdapterComida adapterComida;
+    private RecyclerView rvComidas;
+    private RecyclerView.LayoutManager layout;
+
+    /* Spinner */
+    private Spinner spFiltro;
+    private static final String SPFILTRO_TEXT_KEY = "sp_filtro_escolha";
+    private static int escolhaFiltro;
+
+    /*https://hackernoon.com/android-recyclerview-onitemclicklistener-getadapterposition-a-better-way-3c789baab4db*/
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,76 +67,39 @@ public class MainActivity extends AppCompatActivity{
 
         layout = new LinearLayoutManager(getBaseContext(), RecyclerView.VERTICAL, false);
         rvComidas.setLayoutManager(layout);
+
     }
-
-    /* RecyclerView
-    @Override
-    protected void onPause() {
-        super.onPause();
-
-        mBundleRecyclerViewState = new Bundle();
-        Parcelable listState = rvComidas.getLayoutManager().onSaveInstanceState();
-        mBundleRecyclerViewState.putParcelable(RVCOMIDAS_TEXT_KEY,listState);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        if(mBundleRecyclerViewState != null){
-            Parcelable listState = mBundleRecyclerViewState.getParcelable(RVCOMIDAS_TEXT_KEY);
-            rvComidas.getLayoutManager().onRestoreInstanceState(listState);
-        }
-    }
-
-    @Override
-    protected void onSaveInstanceState(@NonNull Bundle outState) {
-        Parcelable listState = rvComidas.getLayoutManager().onSaveInstanceState();
-        outState.putParcelable(RVCOMIDAS_TEXT_KEY,listState);
-        super.onSaveInstanceState(outState);
-    }
-
-
-    @Override
-    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
-        Parcelable listState = savedInstanceState.getParcelable(RVCOMIDAS_TEXT_KEY);
-        rvComidas.getLayoutManager().onRestoreInstanceState(listState);
-        super.onRestoreInstanceState(savedInstanceState);
-    }*/
 
     /* Spinner
     @Override
     protected void onPause() {
         super.onPause();
 
-        mBundleRecyclerViewState = new Bundle();
-        mBundleRecyclerViewState.putInt(RVCOMIDAS_TEXT_KEY,spFiltro.getSelectedItemPosition());
+        mBundleSpinner = new Bundle();
+        mBundleSpinner.putInt(SPFILTRO_TEXT_KEY,spFiltro.getSelectedItemPosition());
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
-        if(mBundleRecyclerViewState != null){
-            spFiltro.setSelection(mBundleRecyclerViewState.getInt(RVCOMIDAS_TEXT_KEY));
+        if(mBundleSpinner != null){
+            spFiltro.setSelection(mBundleSpinner.getInt(SPFILTRO_TEXT_KEY));
         }
-    }
+    }*/
 
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
-        outState.putInt(RVCOMIDAS_TEXT_KEY,spFiltro.getSelectedItemPosition());
+        outState.putInt(SPFILTRO_TEXT_KEY,spFiltro.getSelectedItemPosition());
         super.onSaveInstanceState(outState);
     }
 
 
-    @Override
+   /* @Override */
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
-        if(savedInstanceState != null){
-            Log.e("DADO",String.valueOf(savedInstanceState.getInt(RVCOMIDAS_TEXT_KEY)));
-            spFiltro.setSelection(savedInstanceState.getInt(RVCOMIDAS_TEXT_KEY));
-        }
+        escolhaFiltro = savedInstanceState != null? savedInstanceState.getInt(SPFILTRO_TEXT_KEY) : 0;
         super.onRestoreInstanceState(savedInstanceState);
-    }*/
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -142,6 +112,8 @@ public class MainActivity extends AppCompatActivity{
         ArrayAdapter<CharSequence> adapterSpFiltro = ArrayAdapter.createFromResource(this, R.array.sp_categorias, R.layout.spinner_text);
         adapterSpFiltro.setDropDownViewResource(R.layout.simple_spinner_dropdown);
         spFiltro.setAdapter(adapterSpFiltro);
+
+        spFiltro.setSelection(escolhaFiltro);
 
         spFiltro.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

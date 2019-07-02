@@ -18,6 +18,7 @@ public class AdapterComida extends RecyclerView.Adapter {
     private List<Comida> comidas;
     private Context context;
 
+
     public AdapterComida(List<Comida> comidas, Context context) {
         this.comidas = comidas;
         this.context = context;
